@@ -1,0 +1,29 @@
+{
+  "covoiturageApp": {
+    "passage": {
+      "home": {
+        "title": "Passages",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Passage",
+        "createOrEditLabel": "Créer ou éditer un Passage",
+        "notFound": "Aucun Passage trouvé"
+      },
+      "created": "Un nouveau Passage a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Passage avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Passage avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Passage {{ id }} ?"
+      },
+      "detail": {
+        "title": "Passage"
+      },
+      "id": "ID",
+      "starDate": "Star Date",
+      "endDate": "End Date",
+      "time": "Time",
+      "seat": "Seat",
+      "passeBy": "Passe By",
+      "driver": "Driver"
+    }
+  }
+}

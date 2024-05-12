@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (passage()) {
+      <div>
+        <h2 data-cy="passageDetailsHeading"><span jhiTranslate="covoiturageApp.passage.detail.title">Passage</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ passage()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="covoiturageApp.passage.starDate">Star Date</span></dt>
+          <dd>
+            <span>{{ passage()!.starDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="covoiturageApp.passage.endDate">End Date</span></dt>
+          <dd>
+            <span>{{ passage()!.endDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="covoiturageApp.passage.time">Time</span></dt>
+          <dd>
+            <span>{{ passage()!.time | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="covoiturageApp.passage.seat">Seat</span></dt>
+          <dd>
+            <span>{{ passage()!.seat }}</span>
+          </dd>
+          <dt><span jhiTranslate="covoiturageApp.passage.passeBy">Passe By</span></dt>
+          <dd>
+            @if (passage()!.passeBy) {
+              <div>
+                <a [routerLink]="['/picking-point', passage()!.passeBy?.id, 'view']">{{ passage()!.passeBy?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="covoiturageApp.passage.driver">Driver</span></dt>
+          <dd>
+            <span>{{ passage()!.driver?.id }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/passage', passage()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

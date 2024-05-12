@@ -1,0 +1,175 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-passage-heading" data-cy="PassageCreateUpdateHeading" jhiTranslate="covoiturageApp.passage.home.createOrEditLabel">
+        Créer ou éditer un Passage
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="covoiturageApp.passage.id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_starDate" jhiTranslate="covoiturageApp.passage.starDate">Star Date</label>
+          <div class="input-group">
+            <input
+              id="field_starDate"
+              data-cy="starDate"
+              type="text"
+              class="form-control"
+              name="starDate"
+              ngbDatepicker
+              #starDateDp="ngbDatepicker"
+              formControlName="starDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="starDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          @if (editForm.get('starDate')!.invalid && (editForm.get('starDate')!.dirty || editForm.get('starDate')!.touched)) {
+            <div>
+              @if (editForm.get('starDate')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_endDate" jhiTranslate="covoiturageApp.passage.endDate">End Date</label>
+          <div class="input-group">
+            <input
+              id="field_endDate"
+              data-cy="endDate"
+              type="text"
+              class="form-control"
+              name="endDate"
+              ngbDatepicker
+              #endDateDp="ngbDatepicker"
+              formControlName="endDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          @if (editForm.get('endDate')!.invalid && (editForm.get('endDate')!.dirty || editForm.get('endDate')!.touched)) {
+            <div>
+              @if (editForm.get('endDate')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_time" jhiTranslate="covoiturageApp.passage.time">Time</label>
+          <div class="input-group">
+            <input
+              id="field_time"
+              data-cy="time"
+              type="text"
+              class="form-control"
+              name="time"
+              ngbDatepicker
+              #timeDp="ngbDatepicker"
+              formControlName="time"
+            />
+            <button type="button" class="btn btn-secondary" (click)="timeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          @if (editForm.get('time')!.invalid && (editForm.get('time')!.dirty || editForm.get('time')!.touched)) {
+            <div>
+              @if (editForm.get('time')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_seat" jhiTranslate="covoiturageApp.passage.seat">Seat</label>
+          <input type="number" class="form-control" name="seat" id="field_seat" data-cy="seat" formControlName="seat" />
+          @if (editForm.get('seat')!.invalid && (editForm.get('seat')!.dirty || editForm.get('seat')!.touched)) {
+            <div>
+              @if (editForm.get('seat')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('seat')?.errors?.number" jhiTranslate="entity.validation.number"
+                >Ce champ doit être un nombre.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_passeBy" jhiTranslate="covoiturageApp.passage.passeBy">Passe By</label>
+          <select
+            class="form-control"
+            id="field_passeBy"
+            data-cy="passeBy"
+            name="passeBy"
+            formControlName="passeBy"
+            [compareWith]="comparePickingPoint"
+          >
+            @if (editForm.get(['passeBy'])!.value == null) {
+              <option [ngValue]="null" selected></option>
+            }
+            @for (pickingPointOption of passeBiesCollection; track $index) {
+              <option [ngValue]="pickingPointOption">{{ pickingPointOption.id }}</option>
+            }
+          </select>
+        </div>
+        @if (editForm.get(['passeBy'])!.invalid && (editForm.get(['passeBy'])!.dirty || editForm.get(['passeBy'])!.touched)) {
+          <div>
+            @if (editForm.get(['passeBy'])?.errors?.required) {
+              <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+            }
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_driver" jhiTranslate="covoiturageApp.passage.driver">Driver</label>
+          <select
+            class="form-control"
+            id="field_driver"
+            data-cy="driver"
+            name="driver"
+            formControlName="driver"
+            [compareWith]="compareUser"
+          >
+            @if (!editForm.get('driver')!.value) {
+              <option [ngValue]="null" selected></option>
+            }
+            @for (userOption of usersSharedCollection; track $index) {
+              <option [ngValue]="userOption">{{ userOption.id }}</option>
+            }
+          </select>
+        </div>
+        @if (editForm.get(['driver'])!.invalid && (editForm.get(['driver'])!.dirty || editForm.get(['driver'])!.touched)) {
+          <div>
+            @if (editForm.get(['driver'])?.errors?.required) {
+              <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+            }
+          </div>
+        }
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

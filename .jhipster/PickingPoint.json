@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20240512093803"
+  },
+  "applications": ["covoiturage"],
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "PickingPoint",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "passage",
+      "otherEntityRelationshipName": "passeBy",
+      "relationshipName": "passages",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

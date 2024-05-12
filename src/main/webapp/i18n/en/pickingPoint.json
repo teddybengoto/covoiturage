@@ -1,0 +1,26 @@
+{
+  "covoiturageApp": {
+    "pickingPoint": {
+      "home": {
+        "title": "Picking Points",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Picking Point",
+        "createOrEditLabel": "Create or edit a Picking Point",
+        "notFound": "No Picking Points found"
+      },
+      "created": "A new Picking Point is created with identifier {{ param }}",
+      "updated": "A Picking Point is updated with identifier {{ param }}",
+      "deleted": "A Picking Point is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Picking Point {{ id }}?"
+      },
+      "detail": {
+        "title": "Picking Point"
+      },
+      "id": "ID",
+      "name": "Name",
+      "adresse": "Adresse",
+      "passages": "Passages"
+    }
+  }
+}

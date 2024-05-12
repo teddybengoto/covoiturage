@@ -1,0 +1,49 @@
+{
+  "annotations": {
+    "changelogDate": "20240512093903"
+  },
+  "applications": ["covoiturage"],
+  "fields": [
+    {
+      "fieldName": "starDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "time",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "seat",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Passage",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "pickingPoint",
+      "otherEntityRelationshipName": "passages",
+      "relationshipName": "passeBy",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "user",
+      "relationshipName": "driver",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no"
+}

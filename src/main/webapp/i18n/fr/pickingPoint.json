@@ -1,0 +1,26 @@
+{
+  "covoiturageApp": {
+    "pickingPoint": {
+      "home": {
+        "title": "PickingPoints",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Picking Point",
+        "createOrEditLabel": "Créer ou éditer un Picking Point",
+        "notFound": "Aucun Picking Point trouvé"
+      },
+      "created": "Un nouveau Picking Point a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Picking Point avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Picking Point avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Picking Point {{ id }} ?"
+      },
+      "detail": {
+        "title": "Picking Point"
+      },
+      "id": "ID",
+      "name": "Name",
+      "adresse": "Adresse",
+      "passages": "Passages"
+    }
+  }
+}

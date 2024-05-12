@@ -1,0 +1,25 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 0,
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "covoiturage",
+    "buildTool": "maven",
+    "clientFramework": "angular",
+    "clientTheme": "lumen",
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "devServerPort": 4200,
+    "enableHibernateCache": false,
+    "enableTranslation": true,
+    "entities": ["PickingPoint", "Passage"],
+    "jhipsterVersion": "8.4.0",
+    "jwtSecretKey": "YThjZDBlMjAzZmZhNmEzYzkzZGY1OGZkZjhmOGEwZTZiYzA3MGEzM2I0ODY3YjJiYzhlNTEwMjczZjZmMDA0OGViZTU4MzdlOGNhNjNlMWY4Mzg5MjI2ODRlYmNkOWMyMTgzODkyOGExY2E5MzU1M2ViNWI0YjFlZmY1NzcyYWI=",
+    "languages": ["fr", "en"],
+    "lastLiquibaseTimestamp": 1715506743000,
+    "nativeLanguage": "fr",
+    "packageFolder": "com/w3plus",
+    "packageName": "com.w3plus",
+    "prodDatabaseType": "mongodb"
+  }
+}

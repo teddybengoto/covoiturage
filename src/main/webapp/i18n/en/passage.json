@@ -1,0 +1,29 @@
+{
+  "covoiturageApp": {
+    "passage": {
+      "home": {
+        "title": "Passages",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Passage",
+        "createOrEditLabel": "Create or edit a Passage",
+        "notFound": "No Passages found"
+      },
+      "created": "A new Passage is created with identifier {{ param }}",
+      "updated": "A Passage is updated with identifier {{ param }}",
+      "deleted": "A Passage is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Passage {{ id }}?"
+      },
+      "detail": {
+        "title": "Passage"
+      },
+      "id": "ID",
+      "starDate": "Star Date",
+      "endDate": "End Date",
+      "time": "Time",
+      "seat": "Seat",
+      "passeBy": "Passe By",
+      "driver": "Driver"
+    }
+  }
+}

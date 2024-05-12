@@ -1,0 +1,56 @@
+application {
+
+  config {
+    baseName covoiturage
+    applicationType monolith
+    authenticationType jwt
+    packageName com.w3plus
+    databaseType mongodb
+    buildTool maven
+    clientFramework angular
+    clientTheme lumen
+    enableTranslation true
+    nativeLanguage fr
+    languages [en, fr]
+  }
+
+  entities *
+
+}
+
+//entity User {}
+
+entity PickingPoint{
+    name String required
+    adresse String required
+}
+
+entity Passage {
+   starDate LocalDate required
+   endDate  LocalDate required
+   time LocalDate required
+   seat Integer required
+
+}
+
+//entity Car{
+//    brand String required
+//    seat Integer required
+//}
+
+
+relationship OneToOne {
+
+//    Passage {car required} to Car
+    Passage {passeBy required} to PickingPoint {passages}
+    Passage{driver required} to User with builtInEntity
+
+}
+
+//relationship OneToMany {
+  // Passage {passengers  } to User with builtInEntity
+//}
+
+// Set pagination options
+
+paginate * with infinite-scroll
