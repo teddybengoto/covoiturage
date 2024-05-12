@@ -32,7 +32,8 @@ spring:
       indent-output: true
   data:
     mongodb:
-      uri: mongodb://localhost:27017/covoiturage
+      uri: mongodb+srv://devApi:a6yQfRGxmmNG23da@cluster0.dzc7mrh.mongodb.net/covoiturage
+
   mail:
     host: localhost
     port: 25

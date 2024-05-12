@@ -28,7 +28,7 @@ entity PickingPoint{
 entity Passage {
    starDate LocalDate required
    endDate  LocalDate required
-   time LocalDate required
+   time Instant required
    seat Integer required
 
 }
@@ -47,9 +47,9 @@ relationship OneToOne {
 
 }
 
-//relationship OneToMany {
-  // Passage {passengers  } to User with builtInEntity
-//}
+relationship OneToMany {
+   Passage {passengers} to User with builtInEntity
+}
 
 // Set pagination options
 
